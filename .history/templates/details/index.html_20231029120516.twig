@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detailsseite
+{% endblock %}
+
+{% block body %}
+
+	<div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+		<div class="my-1 p-1">
+			<h2 class="display-5 text-center">Kurse Information</h2>
+		</div>
+
+		<div class="d-flex justify-content-end">
+		<a href="{{ path('app_kurse') }}" class="btn btn-success btn-md">Zur Kurse</a>
+		</div>
+
+		<div class='container'>
+				<div class="row">
+					{% for kurs in kurse %}
+					<div class="col-sm-6 mb-3">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">{{ kurs.name }}</h5>
+								<p class="card-text">{{ kurs.info }}</p>
+{# 								<a href="{{ path('app_kurse') }}/{{ kurs.id }}" class="btn btn-primary">Zum Kurs</a>
+ #}							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+		</div>
+
+
+
+		<div class="my-1 p-1">
+			<h2 class="display-5 text-center">Kundendetails</h2>
+		</div>
+
+		<div class="d-flex justify-content-end">
+			<a href="{{ path('app_kunden') }}" class="btn btn-success btn-md">Zur Kundendetails</a>
+		</div>
+
+		<div class='container'>
+			<div class="row">
+			{% for kunde in kunden %}
+			<div class="col-sm-6 mb-3">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">{{ kunde.name }}</h5>
+								<p class="card-text">{{ kunde.anschrift  }}</p>
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">Begin</span>
+									<input type="date" class="form-control"  value='{{ kunde.begin|date('Y-m-d') }}'>
+
+									<span class="input-group-text" id="basic-addon1">Ende</span>
+									<input type="date" class="form-control" value='{{ kunde.ende|date('Y-m-d') }}'>
+								</div>
+{# 								<a href="{{ path('app_kunden') }}/{{ kunde.id }}" class="btn btn-primary">Zur Kundeninfo</a>
+ #}							</div>
+						</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+
+	<br>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kurse
+{% endblock %}
+
+{% block body %}
+	<div class="d-flex justify-content-end">
+	<a href="{{ path('app_kurse') }}/erstellen" class="btn btn-primary btn-md">Kurs erstellen</a>
+	</div>
+
+	<h2 class="pb-2 border-bottom px-4 py-5 text-center">Liste der Kurse
+		{{ kurse|length }}</h2>
+	<br>
+
+	<div class='container'>
+		<div class="row">
+					{% for kurs in kurse %}
+						<div class="col-sm-6 mb-2">
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title">{{ kurs.name}}</h5>
+									<p class="card-text">{{kurs.info}}</p>
+									<a href="{{ path('app_kurse') }}/{{ kurs.id }}" class="btn btn-success">Zum Kurs</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+		</div>
+	</div>
+{% endblock %}

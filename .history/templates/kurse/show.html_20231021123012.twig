@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kurse
+{% endblock %}
+
+{% block body %}
+	<div class="container px-4 py-5">
+		<h2 class="pb-2 border-bottom">Kurs Details</h2>
+
+		<div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+
+				<div class="col">
+					<div class="row row-cols-1 row-cols-sm-2 g-4">
+						<div class="col d-flex flex-column gap-2">
+							<div class="bi bi-backpack4-fill d-inline-flex align-items-center justify-content-start bg-gradient fs-4 rounded-3">
+								<svg class="bi" width="1em" height="1em">
+									<use xlink:href="#collection"></use>
+								</svg>
+							</div>
+							<h4 class="fw-semibold mb-0 text-body-emphasis">{{kurs.name}}</h4>
+							<p class="text-body-secondary">{{ kurs.info }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+{% endblock %}

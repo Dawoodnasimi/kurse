@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kurse
+{% endblock %}
+
+{% block body %}
+<div class="d-flex justify-content-end">
+					
+
+		<a href="{{ path('app_kurse') }}/erstellen" class="btn btn-primary btn-md">Kurs erstellen</a>
+		</div>
+
+		<h2 class="pb-2 border-bottom px-4 py-5 text-center">Liste der Kurse {{ kurse|length }}</h2>
+
+	<div class="container px-4 py-5">
+		<div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+
+		{% for kurs in kurse %}
+
+				<div class="col">
+
+					<div class="row row-cols-1 row-cols-sm-2 g-4">
+						<div class="col d-flex flex-column gap-2">
+							<div class="bi bi-backpack4-fill d-inline-flex align-items-center justify-content-start bg-gradient fs-4 rounded-3">
+							</div>
+							<h4 class="fw-semibold mb-0 text-body-emphasis">{{ kurs.name}}</h4>
+							<a href="{{ path('app_kurse') }}/{{ kurs.id }}"<p class="text-body-secondary">{{ kurs.info }}</a></p>
+
+							<div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+						</div>
+
+						
+					</div>
+				</div>
+		{% endfor %}
+
+			</div>
+	</div>
+{% endblock %}

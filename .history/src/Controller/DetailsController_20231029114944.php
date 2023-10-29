@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Kurse;
+use App\Entity\Kunden;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+class DetailsController extends AbstractController
+{
+    #[Route('/', name: 'app_details')]
+    public function index(EntityManagerInterface $entityManager): Response
+    {
+
+        $kurs = $entityManager->getRepository(Kurse::class)->findall();
+        $kunden = $entityManager->getRepository(Kunden::class)->findall();
+
+        return $this->render('details/index.html.twig', [
+            'kurse' => $kurs,
+            'kunden' => $kunden
+        ]);
+
+    }
+
+    #[Route('/kurse/{id}', methods:['GET'], name: 'kurse')]
+    public function show(EntityManagerInterface $entityManager, $id): Response
+    {
+        $einzelner_kurs = $entityManager->getRepository(Kurse::class)->find($id);
+        //dd($einzelner_kurs);
+
+        return $this->render('kurse/show.html.twig', [
+            'kurs' => $einzelner_kurs,
+        ]);
+    }
+
+    #[Route('/kunden/{id}', methods: ['GET'], name: 'kunden')]
+    public function show(EntityManagerInterface $entityManager, $id): Response {
+        $einzelner_kundeninfo = $entityManager->getRepository(Kunden::class)->find($id);
+        //dd($einzelner_kundeninfo);
+        //exit;
+
+        return $this->render('kunden/show.html.twig', [
+            'kunde' => $einzelner_kundeninfo,
+        ]);
+    }
+}

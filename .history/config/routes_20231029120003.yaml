@@ -1,0 +1,17 @@
+controllers:
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+
+kurse_show:
+  path: /kurse/{id}
+  controller: 'App\Controller\DetailsController::show'
+  requirements:
+    id: \d+
+
+kunden_show:
+  path: /kunden/{id}
+  controller: 'App\Controller\DetailsController::show'
+  requirements:
+    id: \d+

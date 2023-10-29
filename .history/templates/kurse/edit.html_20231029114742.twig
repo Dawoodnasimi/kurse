@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Kurs erstellen
+{% endblock %}
+
+{% block body %}
+
+	<h2 class="text-center">Kursdetail bearbeiten</h2>
+	<br>
+
+	<div class='container form-floating'>
+			<br>
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

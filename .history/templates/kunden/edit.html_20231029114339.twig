@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Kundendaten bearbeiten
+{% endblock %}
+
+{% block body %}
+
+<h2 class="pb-2 border-bottom px-4 py-5 text-center">Liste der Kunden
+		{{ kunden|length }}</h2>
+	<br>
+
+		<div class='container form-floating'>
+			<br>
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+			{{ form_end(form) }}
+		</div>
+{% endblock %}

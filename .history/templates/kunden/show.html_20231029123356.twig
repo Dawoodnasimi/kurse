@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Kunden
+{% endblock %}
+
+{% block body %}
+	<div class="container px-4 py-5">
+		<h2 class="pb-2 border-bottom">Kundendetails</h2>
+
+		<div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+			<div class="col d-flex flex-column gap-2">
+				<div class="col">
+					<div class="row row-cols-1 row-cols-sm-2 g-4">
+						<div class="col-12 d-flex flex-column gap-2">
+							<div class="bi bi-backpack4-fill d-inline-flex align-items-center justify-content-start bg-gradient fs-4 rounded-3"></div>
+							<h4 class="fw-semibold mb-0 text-body-emphasis"><strong>Kundenname: </strong>{{ kunde.name }}</h4>
+							<p class="text-body-secondary"><strong>Anschrift: </strong>{{ kunde.anschrift }}</p>
+							<p class="text-body-secondary"><strong>Kursbegin: </strong>
+							<input type='date' class='form-control' id='date' name='date' value='{{ kunde.begin|date('Y-m-d') }}' required>
+							</p>
+							<p class="text-body-secondary"><strong>Kursende: </strong>
+							<input type='date' class='form-control' id='date' name='date' value='{{ kunde.ende|date('Y-m-d') }}' required>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<a href="{{ path('app_kunden') }}/bearbeiten/{{ kunde.id }}" class="btn btn-success mb-2" type="button">Kundendaten beitreten</a>
+				<a href="{{ path('app_kunden') }}/loeschen/{{ kunde.id }}" class="btn btn-danger" type="button">Kundendaten löschen</a>
+						
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

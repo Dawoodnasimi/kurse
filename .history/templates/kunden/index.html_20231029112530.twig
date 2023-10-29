@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Kundenverwaltung
+{% endblock %}
+
+{% block body %}
+
+	<div class="d-flex justify-content-end">
+
+
+		<a href="{{ path('app_kunden') }}/erstellen" class="btn btn-primary btn-md">Kundendaten Eintragen</a>
+	</div>
+
+
+	<main class="form w-80 m-auto">
+		<div class='container'>
+			<br>
+			{# <form>
+				<div class="form-floating">
+					<input type="email" class="form-control" id="kursname" placeholder="Tragen Sie bitte der Kursname ein.">
+					<label for="kursname">Kurs</label>
+				</div>
+				<br>
+				<div class="form-floating">
+					<input type="integer" class="form-control" id="kursdauer" placeholder="Wie lange dauert der Kurs?">
+					<label for="kursdauer">Kursdauer</label>
+				</div>
+				<br>
+				<div class="form-floating">
+					<textarea class="form-control" id="kursinfo" placeholder="Kursinfo"></textarea>
+					<label for="Kursinfo">Kursinfo</label>
+				</div>
+				<br>
+ #}
+
+ #}
+
+ <div class='container'>
+		<div class="row">
+				{% for kunde in kunden %}
+						<div class="col-sm-6 mb-2">
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title">{{ kunde.name}}</h5>
+									<p class="card-text">{{ kunde.anschrift }}</p>
+									<input type="date" class="form-control" value="{{ kunde.begin }}">
+									<a href="{{ path('app_kunden') }}/{{ kunde.id }}">Zum Kundendetail</a>
+{# 					
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+					{# <div class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Special title treatment</h5>
+								<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+								<a href="#" class="btn btn-primary">Go somewhere</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Special title treatment</h5>
+								<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+								<a href="#" class="btn btn-primary">Go somewhere</a>
+							</div>
+						</div> #}
+{# 			</div>
+ #}		</div>
+	</div>
+
+
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

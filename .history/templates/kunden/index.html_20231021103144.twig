@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello KundenController!
+{% endblock %}
+
+{% block body %}
+
+	<main class="form w-80 m-auto">
+		<div class='container'>
+			<br>
+			<form>
+				<div class="form-floating">
+					<input type="email" class="form-control" id="kursname" placeholder="Tragen Sie bitte der Kursname ein.">
+					<label for="kursname">Kurs</label>
+				</div>
+				<br>
+				<div class="form-floating">
+					<input type="integer" class="form-control" id="kursdauer" placeholder="Wie lange dauert der Kurs?">
+					<label for="kursdauer">Kursdauer</label>
+				</div>
+				<br>
+				<div class="form-floating">
+					<textarea class="form-control" id="kursinfo" placeholder="Kursinfo"></textarea>
+					<label for="Kursinfo">Kursinfo</label>
+				</div>
+				<br>
+
+				<button class="btn btn-success w-100 py-2" type="submit">Speichern</button>
+			</form>
+		</div>
+	</main>
+{% endblock %}

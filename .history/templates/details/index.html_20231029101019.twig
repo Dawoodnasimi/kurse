@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DetailsController!
+{% endblock %}
+
+{% block body %}
+	<div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+		<div class="my-3 p-3">
+			<h2 class="display-5 text-center">Another headline</h2>
+			<p class="lead" style='text-align:left;'>Lorem ipsum dolor sit amet consectetur adipi sicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+		</div>
+
+			{% for kurs in kurse %}
+
+			{# print kurs.name, kurs.info in responsive cards #}
+			<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+				<div class="col">
+					<div class="card mb-4 rounded-3 shadow-sm">
+						<div class="card-header py-3">
+							<h4 class="my-0 fw-normal">{{ kurs.name }}</h4>
+						</div>
+						<div class="card-body">
+							<h1 class="card-title pricing-card-title">{{ kurs.info }}<small class="text-muted fw-light">/ mo</small></h1>
+							<ul class="list-unstyled mt-3 mb-4">
+								<li>10 users included</li>
+								<li>2 GB of storage</li>
+								<li>Email support</li>
+								<li>Help center access</li>
+							</ul>
+							<button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+						</div>
+					</div>
+				</div>
+
+			{% endfor %}
+	</div>
+	<br>
+{% endblock %}

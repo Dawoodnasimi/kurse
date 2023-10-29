@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Kundenverwaltung
+{% endblock %}
+
+{% block body %}
+
+	<div class="d-flex justify-content-end">
+
+
+		<a href="{{ path('app_kunden') }}/erstellen" class="btn btn-primary btn-md">Kundendaten Eintragen</a>
+	</div>
+
+
+	<main class="form w-80 m-auto">
+		<div class='container'>
+			<br>
+			{# <form>
+				<div class="form-floating">
+					<input type="email" class="form-control" id="kursname" placeholder="Tragen Sie bitte der Kursname ein.">
+					<label for="kursname">Kurs</label>
+				</div>
+				<br>
+				<div class="form-floating">
+					<input type="integer" class="form-control" id="kursdauer" placeholder="Wie lange dauert der Kurs?">
+					<label for="kursdauer">Kursdauer</label>
+				</div>
+				<br>
+				<div class="form-floating">
+					<textarea class="form-control" id="kursinfo" placeholder="Kursinfo"></textarea>
+					<label for="Kursinfo">Kursinfo</label>
+				</div>
+				<br>
+ #}
+				{% for kunde in kunden %}
+
+					<a href="{{ path('app_kunden') }}/{{ kunde.id }}">{{ kunde.anschrift }}</a>
+
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Kundenverwaltung
+{% endblock %}
+
+{% block body %}
+
+	<div class="d-flex justify-content-end">
+		<a href="{{ path('app_kunden') }}/erstellen" class="btn btn-primary btn-md">Kundendaten Eintragen</a>
+	</div>
+
+	<h2 class="pb-2 border-bottom px-4 py-5 text-center">Liste der Kunden
+		{{ kunden|length }}</h2>
+	<br>
+
+<div class='container'>
+			<div class="row">
+			{% for kunde in kunden %}
+			<div class="col-sm-6 mb-3">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">{{ kunde.name }}</h5>
+								<p class="card-text">{{ kunde.anschrift  }}</p>
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">Begin</span>
+									<input type="date" class="form-control"  value='{{ kunde.begin|date('Y-m-d') }}'>
+
+									<span class="input-group-text" id="basic-addon1">Ende</span>
+									<input type="date" class="form-control" value='{{ kunde.ende|date('Y-m-d') }}'>
+								</div>
+								<a href="{{ path('app_kunden') }}/{{ kuunde.id }}" class="btn btn-primary">Zur Kundeninfo</a>
+							</div>
+						</div>
+				</div>
+				{% endfor %}
+			</div>
+</div>
+{% endblock %}
